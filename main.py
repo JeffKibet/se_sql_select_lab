@@ -55,10 +55,11 @@ df_short_title = pd.read_sql("""
 
 # STEP 8
 # Replace None with your code
+# STEP 8
 sum_total_price = pd.read_sql("""
-    SELECT ROUND(priceEach * quantityOrdered) AS total_price
+    SELECT SUM(ROUND(priceEach * quantityOrdered)) AS total_price
     FROM orderDetails
-""", conn).sum()
+""", conn)["total_price"]
 # STEP 9
 # Replace None with your code
 df_day_month_year = pd.read_sql("""
